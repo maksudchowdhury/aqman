@@ -2,14 +2,14 @@ AQMAN stands for A Question Manager. This application is built to manage the que
 
 -----
 
-<h3>Login Screen of the Application</h3> <br>
+<h4>Login Screen of the Application</h4> <br>
 
 ![image](https://github.com/user-attachments/assets/d52c1510-282c-4c88-b078-dd58a7f677c5)
 
 -----
 
-Admin Dashboard
-&nbsp;
+<h4>Admin Dashboard </h4> <br>
+
 ![image](https://github.com/user-attachments/assets/298e79a1-b90a-4b8d-ab8d-707581e28f36)
 
 -----
