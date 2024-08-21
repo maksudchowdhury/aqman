@@ -1,5 +1,5 @@
-<h2>AQMAN stands for A Question Manager. This application is built to manage the questions submitted by question makers by the Authority. This application was built to reduce the turmoil during preparing a question and merging them together while maintaining the Paper Format, which becomes the greater issue later. But AQMAN resolves them all and helps the question setter and maker focus on their real work while it takes great care of managing the question database and Formatting. This Application was built using Python Django in the Backend and used django Template Engine to render the frontend. Alongside, some JS packages were used. These Packages were modified to fit in this project.
-</h2>
+<h3>AQMAN stands for A Question Manager. This application is built to manage the questions submitted by question makers by the Authority. This application was built to reduce the turmoil during preparing a question and merging them together while maintaining the Paper Format, which becomes the greater issue later. But AQMAN resolves them all and helps the question setter and maker focus on their real work while it takes great care of managing the question database and Formatting. This Application was built using Python Django in the Backend and used django Template Engine to render the frontend. Alongside, some JS packages were used. These Packages were modified to fit in this project.
+</h3>
 -----
 
 <h4>Login Screen of the Application</h4> <br>
@@ -14,12 +14,14 @@
 
 -----
 
-Admin Approval Point
+####Admin Approval Point <br>
+
 ![image](https://github.com/user-attachments/assets/c73e30d7-353c-4686-9119-420ccef1310f)
 
 -----
 
-Admin Exam Setting Panel
+####Admin Exam Setting Panel <br>
+
 ![image](https://github.com/user-attachments/assets/c8a50647-498e-46ca-92c4-d4cd7f5a0aaf)
 
 -----
