@@ -1,0 +1,76 @@
+/* Font imports */
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+/* color roots */
+
+:root{
+    --light-dark: #494949;
+}
+
+/* basic configurations */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+/* end of basic configuration */
+
+html, body{
+    margin: 0;
+    padding: 0 ;
+    height: 100%;
+}
+.ql-editor{
+    font-size: 1.0rem;
+}
+.ql-formula{
+    font-size: 1.2rem;
+}
+.swal-button{
+    background-color: #0054A6 !important;
+    transition: ease-in-out 0.3s; 
+}
+.swal-button:hover{
+    background-color: #056fda !important; 
+}
+
+svg, .fm_editor_icon{
+    vertical-align: top;
+}
+
+.swal-text{
+    color: rgb(36, 36, 36);
+}
+.text-dark2{
+    color: rgb(145, 145, 145);
+}
+.w-70{
+    width: 70%;
+}
+
+.correctInsertion{
+    border-color: #28a745!important;
+    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.05)!important;
+}
+
+.left-border{
+    border-left: 1px solid #8a8a8a62;
+}
+
+.ubuntu{
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 400;
+    color: var(--light-dark);
+}
+
+.op:hover, .selected{
+    background-color: #baffc9 !important;
+    cursor: pointer;
+}
+

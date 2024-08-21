@@ -1,0 +1,108 @@
+{% load static %}
+{% static "" as baseUrl %}
+{% static "images" as img %}
+{% static "css" as css %}
+{% static "fonts" as fonts %}
+{% static "js" as js %}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="AQMAN is a question bank management system.">
+  <meta name="keywords" content="AQMAN, question bank, question bank management system, question bank management">
+  <meta name="author" content="Maksud Chowdhury">
+
+  <title>AQMAN&nbsp;&nbsp;|&nbsp;&nbsp;{% block title %}{% endblock %}</title>
+  <link rel="stylesheet" href="{{css}}/style.css">
+  <link rel="stylesheet" href="{{css}}/bootstrap_uit.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+  <link rel="icon" href="{{img}}/favicon.png" type="image/x-icon">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="{{css}}/toastr.min.css">
+  <script src="{{js}}/toastr.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/katex.min.css"
+    integrity="sha384-bYdxxUwYipFNohQlHt0bjN/LCpueqWz13HufFEV1SUatKs1cm4L6fFgCi1jT643X" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/katex.min.js"
+    integrity="sha384-Qsn9KnoKISj6dI8g7p1HBlNpVx0I8p1SvlwOldgi3IorMle61nQy4zEahWYtljaz"
+    crossorigin="anonymous"></script>
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"
+    integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk"
+    crossorigin="anonymous"></script>
+    
+    <script src="{{js}}/swal.js"></script>
+    <script src="{{js}}/prescript.js"></script>
+
+    <script>
+
+      
+      
+      document.addEventListener("DOMContentLoaded", function () {
+        renderMathInElement(document.body, {
+          // customised options
+          // • auto-render specific keys, e.g.:
+          delimiters: [
+            { left: '$$', right: '$$', display: true },
+            { left: '$', right: '$', display: false },
+            { left: '\\(', right: '\\)', display: false },
+            { left: '\\[', right: '\\]', display: true }
+          ],
+          throwOnError: false
+        });
+      });
+
+      
+    </script>
+
+  <link rel="stylesheet" href="{{css}}/quill.snow.css">
+  <script src="{{js}}/quill.min.js"></script>
+  <script src="{{js}}/image-resize.min.js"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/gh/scrapooo/quill-resize-module@1.0.2/dist/quill-resize-module.js"></script> -->
+  
+  <link rel="stylesheet" href="{{css}}/mathquill.css">
+  <script src="https://cdn.jsdelivr.net/npm/@edtr-io/mathquill@0.11.0/build/mathquill.min.js"
+    integrity="sha256-1XldAnavTLoExr6gc0l1JD8cIzqRYhbi1eksEWsYdpY=" crossorigin="anonymous"></script>
+  <script src="{{js}}/mathquill4quill.js"></script>
+
+  <link rel="stylesheet" href="{{css}}/mathquill4quill.css">
+  <!-- fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+
+
+  <header>
+    {% block header %}{% endblock %}
+  </header>
+    {% block nav %}{% endblock %}
+    {% block main %}{% endblock %}
+  <footer class="text-center h6 mt-5">
+    <div class="">
+      <p>&copy;All rights reserved to <a target="_blank" href="https://www.maksud.xyz" class=""
+        style="text-decoration: none;">| AQMAN Systems</a></p>
+    </div>
+    <div style="height: 2rem;"></div>
+  </footer>
+  {% block jsscript %}{% endblock %}
+  <script src="{{js}}/mathquill4quill.js"></script>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/core.min.js"
+    integrity="sha512-Vj8DsxZwse5LgmhPlIXhSr/+mwl8OajbZVCr4mX/TcDjwU1ijG6A15cnyRXqZd2mUOQqRk4YbQdc7XhvedWqMg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="{{js}}/script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<nav class="navbar navbar-expand-lg bg-info" data-bs-theme="dark">
+  <div class="container">
+    <div class="d-flex flex-row justify-content-between col">
+      <div>
+        <a class="" href="#"><img class="" style="max-width:150px; min-width:150px;" src="{{img}}/aqman.png" alt=""
+            srcset=""></a>
+      </div>
+
+      <div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01"
+          aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+
+    </div>
+
+    <div class="collapse navbar-collapse" id="navbarColor01">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Home
+            <span class="visually-hidden">(current)</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Features</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Pricing</a>
+        </li>
+      </ul>
+      <form class="d-flex" action="{%url 'logout'%}">
+        <!-- <input class="form-control me-sm-2" type="search" placeholder="Search"> -->
+        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Logout</button>
+      </form>
+    </div>
+  </div>
+</nav>

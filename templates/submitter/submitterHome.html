@@ -1,0 +1,88 @@
+{% extends 'base.html'%}
+{%block nav%}
+{% include 'submitter/navSubmitter.html'%}
+{%endblock%}
+{%block title%}Home{%endblock%}
+{% block main %}
+{% csrf_token %}
+
+<div class="container">
+
+  <form id="questionForm" onsubmit="return false">
+    <div>
+      <div class="form-group mb-3 mt-5">
+        <div class="w-100">
+          <h6 class="">Title of the Question</h6>
+          <input type="text" class="w-100 form-control" id="qTitle" placeholder="Give a title"
+            style="background-color: rgb(255, 243, 228)" required />
+        </div>
+
+        <div class="input-group mb-3 d-flex flex-row">
+          <div class="w-25 text-center p-2" style="padding-left: 0 !important">
+            <span>Module</span>
+            <input type="Number" class="w-100 input-group-text" id="module" required="true
+                    " />
+          </div>
+
+          <div class="w-25 text-center p-2">
+            <span>Chapter</span>
+            <input type="Number" class="w-100 input-group-text" id="chapter" required="true" />
+          </div>
+
+          <div class="w-25 text-center p-2">
+            <span>Topic</span>
+            <input type="Number" class="w-100 input-group-text" id="topic" required="true" />
+          </div>
+
+          <div class="w-25 text-center p-2" style="padding-right: 0 !important">
+            <span>Sub Topic</span>
+            <input type="Number" class="w-100 input-group-text" id="subTopic" required="true" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="editor" class="mb-3"></div>
+    <input name="editorImageUploader" type="file" id="file" hidden="true" method="post" action="{% url 'uploadImage' %}"
+      accept="image/*" />
+
+      
+      
+
+    <div class="input-group mb-3 d-flex flex-row">
+
+
+      <div class="input-group mb-3 w-50 text-center mt-2 p-2" style="padding-left: 0 !important">
+        <span class="input-group-text op" id="op1"  onclick="markAnswer(this.id)" data-answerID="c1" >a.</span>
+        <input type="text" class="form-control" placeholder="Option a" id="c1" required="true">
+      </div>
+
+      <div class="input-group mb-3 w-50 text-center mt-2 p-2" style="padding-right: 0 !important">
+        <span class="input-group-text op" id="op2"  onclick="markAnswer(this.id)" data-answerID="c2">b.</span>
+        <input type="text" class="form-control" placeholder="Option b" id="c2" required="true">
+      </div>
+
+      <div class="input-group mb-3 w-50 text-center mt-2 p-2" style="padding-left: 0 !important">
+        <span class="input-group-text op" id="op3"  onclick="markAnswer(this.id)" data-answerID="c3">c.</span>
+        <input type="text" class="form-control" placeholder="Option c" id="c3" required="true">
+      </div>
+
+      <div class="input-group mb-3 w-50 text-center mt-2 p-2" style="padding-right: 0 !important">
+        <span class="input-group-text op" id="op4"  onclick="markAnswer(this.id)" data-answerID="c4" >d.</span>
+        <input type="text" class="form-control" placeholder="Option d" id="c4" required="true">
+      </div>
+
+    </div>
+
+    <button type="submit" class="btn btn-info mx-auto mt-2" onclick="submitQuestion()" value="Submit">Submit Question</button>
+    <button class="btn btn-outline-info mx-auto mt-2" onclick="location.reload();">Erase all</button>
+  </form>
+
+</div>
+{% endblock %} {% block jsscript %}
+
+<script>
+  navMenuItemActivator("navMenuItem1");
+</script>
+<script src="{{js}}/quillEditorSettings.js"></script>
+{% endblock %}

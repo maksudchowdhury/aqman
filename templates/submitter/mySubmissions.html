@@ -1,0 +1,35 @@
+{% extends 'base.html'%}
+{%block nav%}
+{% include 'submitter/navSubmitter.html'%}
+{%endblock%}
+{%block title%}Home{%endblock%}
+{% block main %}
+{% csrf_token %}
+
+<div class="container mt-3 text-center">
+    <i><p style="font-size: 0.8rem;">The newest Submissions are on top (ordered by submission date & time)</p></i>
+    <hr>
+</div>
+
+{%for q in questions%}
+<div class="container">
+    <div class="container border border-black-subtle w-100 p-2 mt-3 d-flex flex-row" style="border-radius: 10px;">
+        <div class="col-1 text-center"><p style="margin: 0px 0 0 10px;">{{q.module_no}}.{{q.chapter_no}}.{{q.topic_no}}.{{q.sub_topic_no}}. &emsp;|</p></div>
+        <div class="container col-11" >
+            <p class="p-0 m-0">
+                {{q.question_title}}
+            </p>
+        </div>
+    </div>
+</div>
+{%endfor%}
+
+
+
+
+{% endblock %} {% block jsscript %}
+<script>
+  navMenuItemActivator("navMenuItem3");
+</script>
+<!-- <script src="{{js}}/quillEditorSettings.js"></script> -->
+{% endblock %}

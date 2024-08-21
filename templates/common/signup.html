@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+{% block title %}Sign Up{% endblock %}
+
+{% block main %}
+
+{% if messages %}
+{% for message in messages %}
+<p id="errorMSG" hidden>{{message}}</p>
+<script>
+    let message=document.getElementById("errorMSG").innerText;
+    toastr.error("please try again", message, toasterOptions);
+</script>
+{% endfor %}
+{% endif %}
+
+<div class="container" style="height: 95%;">
+    <div class="row justify-content-center h-100 ">
+        <div class="col-md-7 col-lg-5  d-flex justify-item-center align-items-center mb-0">
+            <div class="login-wrap p-5 mx-auto w-100 pb-0">
+                <div class="icon d-flex align-items-center justify-content-center">
+                    <img src="{{img}}/landing_logo.png" alt="" srcset="">
+                </div>
+                <div class="text-center mb-5 "><img src="{{img}}/aqman_title.png" alt="">
+                <br><span>A Question Manager to Expedite Your Pace</span>
+                </div>
+                <div class="signUp d-md-flex justify-content-center mt-5">
+                    <a href="{%url 'loginPage'%}" style="text-decoration:none"> <span><i class="bi bi-person-fill"></i></span>  Already have an account</a>
+                </div>
+            </div>
+        </div>
+        <form action="{%url 'signUp'%}" method="post" class="login-form" id="accountRegisterForm" data-otpURL="{% url 'getOTP' %}">
+            {% csrf_token %}
+            <div class="container w-75">
+                <div class="row">
+                    <div class="col-md-6 my-auto ">
+                        <div class="form-group d-flex">
+                            <!-- <input type="text" class="form-control rounded-left mb-3" placeholder="First Name" id="fname" required> -->
+                            {{form.first_name|add_class:"form-control rounded-left mb-3"|attr:"placeholder:First Name"|attr:"required"|attr:"id:fname"|attr:"data-bs-toggle:tooltip"|attr:"title:Enter your first name"}}
+                        </div>
+                        <div class="form-group d-flex">
+                            {{form.last_name|add_class:"form-control rounded-left mb-3"|attr:"placeholder:Last Name"|attr:"required"|attr:"id:lname"|attr:"data-bs-toggle:tooltip"|attr:"title:Enter your last name"}}
+                            <!-- <input type="text" class="form-control rounded-left mb-3" placeholder="Last Name" id="lname" required> -->
+                        </div>
+                        
+                        <div class="form-group">
+                            <div class="input-group mb-3">
+                                {{form.email_initial|add_class:"form-control emailInitial"|attr:"placeholder:Email initial"|attr:"required"|attr:"id:emailInitial"|attr:"data-bs-toggle:tooltip"|attr:"title:First part of your email"}}
+                                <!-- <input type="text" class="form-control" placeholder="Email initial" id="emailInitial" required> -->
+                                <span class="input-group-text" id="domain">{{client_domain}}</span>
+                              </div>
+                        </div>
+
+                        <div class="form-group d-flex">
+                            {{form.institution_id|add_class:"form-control rounded-left"|attr:"placeholder:Instituition ID"|attr:"required"|attr:"id:insID"|attr:"data-bs-toggle:tooltip"|attr:"title:Enter your Instituition ID"}}
+                            <!-- <input type="text" class="form-control rounded-left" placeholder="Instituition ID" id="insID" required> -->
+                        </div>
+                    </div>
+
+
+
+                    <div class="col-md-6 my-auto left-border ">
+                        <div class="form-group">
+                            <div class="input-group mb-3">
+                                {{form.otpcode|add_class:"form-control"|attr:"placeholder:OTP Code from Email"|attr:"required"|attr:"id:otpInputField"|attr:"data-bs-toggle:tooltip"|attr:"title:Press Get OTP & Collect that from your Email"}}
+                                <!-- <input type="text" class="form-control" placeholder="OTP Code from Email" id="otpInputField" maxlength="8"> -->
+                                <span id="otpURL" hidden>{% url 'getOTP' %}</span>
+                                <span class="input-group-text btn btn-info" onclick="getOTP('emailInitial','otpURL')" id="getOTPBtn">Get OTP</span>
+                              </div>
+                        </div>
+                        <div class="form-group d-flex ">
+                            {{form.password|add_class:"form-control rounded-left mb-3"|attr:"placeholder:Password"|attr:"required"|attr:"id:pass1"|attr:"data-bs-toggle:tooltip"|attr:"title:At least 8 characters long and contains a Number, Uppercase, Lowercase & a special character"}}
+                            <!-- <input type="password" class="form-control rounded-left mb-3" placeholder="Password" id="pass1" required> -->
+                        </div>
+                        <div class="form-group d-flex">
+                            {{form.confirm_password|add_class:"form-control rounded-left mb-3"|attr:"placeholder:Confirm Password"|attr:"required"|attr:"id:pass2"|attr:"data-bs-toggle:tooltip"|attr:"title:Match the password above"}}
+                            <!-- <input type="password" class="form-control rounded-left mb-3" placeholder="Confirm Password" id="pass2" required> -->
+                        </div>
+                        <div class="form-group d-flex" data-bs-toggle="tooltip" title="Fill out all the Fields to enable this button">
+                            <button type="submit" class="form-control btn btn-info rounded submit px-3 disabled" id="signUpBtn">Sign Up</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+{%endblock%}
+{% block jsscript %}
+<script src="{{js}}/inputValidation.js"></script>
+<script src="{{js}}/otp.js"></script>
+{% endblock %}

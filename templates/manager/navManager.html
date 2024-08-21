@@ -1,0 +1,54 @@
+<nav class="navbar navbar-expand-lg bg-info" data-bs-theme="dark">
+  <div class="container">
+    <div class="d-flex flex-row justify-content-between col">
+      <div>
+        <a class="" href="{%url 'home'%}"><img class="" style="max-width:150px; min-width:150px;" src="{{img}}/aqman.png" alt=""
+            srcset=""></a>
+      </div>
+
+      <div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01"
+          aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+
+    </div>
+
+    <div class="collapse navbar-collapse" id="navbarColor01">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a id="navMenuItem1" class="nav-link" href="{%url 'approvalPoint'%}" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Approval Point"><i class="bi bi-check2-square h4"></i></a>
+        </li>
+
+        <li class="nav-item">
+          <a id="navMenuItem2" class="nav-link" href="{%url 'home'%}" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Question Bank"><i class="bi bi-journal h4"></i></a>
+        </li>
+
+        <li class="nav-item">
+          <a id="navMenuItem3" class="nav-link" href="{%url 'managerEditRequest'%}" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Edit Request"><i class="bi bi-file-earmark-diff h4"></i></a>
+        </li>
+
+        <li class="nav-item">
+          <a id="navMenuItem4" class="nav-link" href="{%url 'managerSetExam'%}" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Set Exam"><i class="bi bi-clipboard-check h4"></i></a>
+        </li>
+
+        <li class="nav-item">
+          <a id="navMenuItem5" class="nav-link" href="{%url 'printQuestion'%}" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Test Print"><i class="bi bi-printer h4"></i></a>
+        </li>
+
+        <li class="nav-item">
+          <a id="navMenuItem6" class="nav-link" href="{%url 'managerSettings'%}" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Settings"><i class="bi bi-gear h4"></i></a>
+        </li>
+
+        <li class="nav-item">
+          <form class="d-flex" action="{%url 'logout'%}">
+            <button class="btn btn-secondary" type="submit">Logout ({{ request.session.userName }})</button>
+          </form>
+        </li>
+
+      </ul>
+      
+    </div>
+  </div>
+</nav>

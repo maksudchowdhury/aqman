@@ -1,0 +1,105 @@
+{% extends 'base.html'%}
+{%block nav%}
+{% include 'manager/navManager.html'%}
+{%endblock%}
+{%block title%}qBank{%endblock%}
+{% block main %}
+{% csrf_token %}
+
+<style>
+    
+  .ql-editor, .ql-formula{
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem!important;
+  }
+
+  .mcqOp{
+    height: 20px;
+    width: 20px!important;
+    padding-bottom: 2px;
+    padding-top: 2px;
+    padding-right: 1px;
+    font-size: 15px;
+    color: black;
+ 
+  }
+  
+</style>
+
+{%for q in questions%}
+
+<div class="container" id= '{{q.question_id}}_container'>
+  <div class="container border border-black-subtle w-100 p-2 mt-3 d-flex flex-row" style="border-radius: 10px;"  >
+    <div class="col-1" ><p style="margin: 8px 0 0 10px;">{{q.module_no}}.{{q.chapter_no}}.{{q.topic_no}}.{{q.sub_topic_no}}</p></div>
+    <div style="margin: 8px 0 0 10px;">|</div>
+
+    <div class="container col-11">
+      <div class="d-flex flex-row align-items-center">
+        <div class="col-10" data-bs-toggle="collapse" href="#{{q.question_id}}div" aria-expanded="false" aria-controls="{{q.question_id}}div">
+
+          <p class="p-0 m-0">
+            {{q.question_title}}
+          </p>
+
+        </div>
+
+        <div class="col-3 d-flex flex-row">
+          <button class="btn btn-info " style="margin: 0 5px 0 5px!important;" onclick="approveQuestion(this.id)" id= '{{q.question_id}}_btnApprove'>Approve</button>
+          <button class="btn btn-outline-danger" style="margin: 0 5px 0 5px!important;" onclick="denyQuestion(this.id)" id= '{{q.question_id}}_btnDeny'>Deny</button>
+        </div>
+      </div>
+
+      <div class="collapse" id="{{q.question_id}}div">
+        <hr class="m-0 p-0 mb-1 mt-3">
+        <div  id= '{{q.question_id}}' class="questionList_item" data-qBody="{{q.question_text}}"></div>
+        
+
+        <div class="circleStyle d-flex flex-row" style="padding: 15px;">
+          <div class="d-flex flex-row align-items-center" style="margin-bottom: 2px;">
+              <div class="border border-dark rounded-circle mcqOp d-flex justify-content-center align-items-center">a</div>
+              <p class="m-0 p-0 qChoice">&nbsp;{{q.choice_1}}</p>
+          </div>
+          &emsp;&emsp;
+          <div class="d-flex flex-row align-items-center" style="margin-bottom: 2px;">
+              <div class="border border-dark rounded-circle mcqOp d-flex justify-content-center align-items-center">b</div>
+              <p class="m-0 p-0 qChoice">&nbsp;{{q.choice_2}}</p>
+          </div>
+
+          &emsp;&emsp;
+          <div class="d-flex flex-row align-items-center" style="margin-bottom: 2px;">
+              <div class="border border-dark rounded-circle mcqOp d-flex justify-content-center align-items-center">c</div>
+              <p class="m-0 p-0 qChoice">&nbsp;{{q.choice_3}}</p>
+          </div>
+
+          &emsp;&emsp;
+          <div class="d-flex flex-row align-items-center" style="margin-bottom: 2px;">
+              <div class="border border-dark rounded-circle mcqOp d-flex justify-content-center align-items-center">d</div>
+              <p class="m-0 p-0 qChoice">&nbsp;{{q.choice_4}}</p>
+          </div>
+      </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+</div>
+
+
+{%endfor%}
+  
+
+
+
+{% endblock %}
+
+{% block jsscript %}
+
+<script>
+  questionList_display();
+  navMenuItemActivator("navMenuItem1");
+</script>
+<!-- <script src="{{js}}/quillEditorSettings.js"></script> -->
+{% endblock %}

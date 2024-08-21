@@ -1,0 +1,25 @@
+{% extends 'base.html'%}
+{%block title%}Home{%endblock%}
+{% block main %}
+{% csrf_token %}
+
+
+<div class="container">
+    
+    <div class="mt-5"></div>
+    <div id="editor" class=""></div>
+    <input name="editorImageUploader" type="file" id="file" hidden="true" method="post" action="{% url 'uploadImage' %}"
+        accept="image/*">
+
+    <a href="#" class="btn btn-info mt-3" onclick="submitData()">Process Data to the next block</a>
+    <div class="row border border-dark mt-3 mb-5">
+     
+        <div class="col-md-12 text-center">
+            <div id="veditor"></div>
+        </div>
+    </div>
+
+
+</div>
+
+{% endblock %}

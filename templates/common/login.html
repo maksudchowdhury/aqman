@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% block title %}Login{% endblock %}
+{% block main %}
+<div class="container" style="height: 95%;">
+
+    
+ 
+   
+
+    <div class="row justify-content-center h-100 ">
+        <div class="col-md-7 col-lg-5  d-flex justify-item-center align-items-center">
+            <div class="login-wrap p-5 mx-auto w-100">
+                <div class="icon d-flex align-items-center justify-content-center">
+                    <img src="{{img}}/landing_logo.png" alt="" srcset="">
+                </div>
+                <div class="text-center mb-3 "><img src="{{img}}/aqman_title.png" alt="">
+                <br><span>A Question Manager to Expedite Your Pace</span>
+                </div>
+
+                <div class="text-center p-0 m-0 mb-2">
+                {% if messages %}
+                    {% for message in messages %}
+                    <p class="text-danger">{{message}}</p>
+                    {% endfor %}
+                
+                {% else %}
+                    <p class="text-danger">&nbsp;</p>
+                {% endif %}
+
+                </div>
+            
+
+                <form action="{%url 'login'%}" class="login-form" method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control emailInitial" placeholder="Email"  name="email_initial" required>
+                            <span class="input-group-text" id="basic-addon2">{{client_domain}}</span>
+                          </div>
+                    </div>
+                    <div class="form-group d-flex">
+                        <input type="password" class="form-control rounded-left mb-3" placeholder="Password" name="password" required>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="form-control btn btn-info rounded submit px-3 mb-5">Login</button>
+                    </div>
+                    <div class="form-group d-md-flex justify-content-between">
+                        <div class="w-50">
+                            <label class="checkbox-wrap checkbox-primary">Remember Me
+                                <input type="checkbox" checked="" id="rememberMe" name="rememberMe">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                        <div class="w-50 text-end">
+                            <i class="bi bi-key-fill"></i>
+                            <a href="{%url 'forgotPassword'%}" style="text-decoration:none">Forgot Password</a>
+                        </div>
+                        
+                    </div>
+                    
+                </form>
+                <div class="signUp d-md-flex justify-content-center mt-5">
+                    <a href="{%url 'signupPage'%}" style="text-decoration:none"> <span><i class="bi bi-person-fill"></i></span> Create an Account</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{%endblock%}
+
+{% block jsscript %}
+<script src="{{js}}/inputValidation.js"></script>
+<script src="{{js}}/swal.js"></script>
+<script src="{{js}}/otp.js"></script>
+{% endblock %}
