@@ -1,9 +1,15 @@
+AQMAN stands for A Question Manager. This application is built to manage the questions submitted by question makers by the Authority. This application was built to reduce the turmoil during preparing a question and merging them together while maintaining the Paper Format, which becomes the greater issue later. But AQMAN resolves them all and helps the question setter and maker focus on their real work while it takes great care of managing the question database and Formatting. This Application was built using Python Django in the Backend and used django Template Engine to render the frontend. Alongside, some JS packages were used. These Packages were modified to fit in this project.
+
+-----
+
 Login Screen of the Application
+&nbsp;
 ![image](https://github.com/user-attachments/assets/d52c1510-282c-4c88-b078-dd58a7f677c5)
 
 -----
 
 Admin Dashboard
+&nbsp;
 ![image](https://github.com/user-attachments/assets/298e79a1-b90a-4b8d-ab8d-707581e28f36)
 
 -----
